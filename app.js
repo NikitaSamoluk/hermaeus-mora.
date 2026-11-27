@@ -51,9 +51,9 @@ function oldEngraving(i){let p=['M65 220V100Q150 -10 235 100V220 M90 220V110Q150
 
 
 
-const folioSources=["Leonardo da vinci, Study of a central church.jpg","Leonardo da vinci, Double manuscript page on the Sforza monument.jpg","Leonardo da vinci, Studies of water.jpg","Leonardo da vinci, Drawing of a flying machine.jpg","Leonardo da Vinci - RCIN 919147, A two-sided sheet of studies of optics c.1482-5.jpg","Study for the Cupola of Milan Cathedral by Leonardo da Vinci.jpg"];
-function folioImage(i){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(folioSources[i].replaceAll(' ','_'))+'?width=800'}
-function engraving(i){return '<figure class="manuscript-study"><img alt="" draggable="false" src="'+folioImage(i)+'" onerror="this.style.visibility=\'hidden\'"></figure>'}
+const folioSources=["d/da/Leonardo_da_vinci%2C_Studies_of_central_plan_buildings.jpg","5/54/Leonardo_da_vinci%2C_Study_for_the_Last_Supper_%26_geometry_study.jpg","7/72/Codex_Madrid_I%2C_folio_031_recto.jpg","f/f9/Madrid_I_Folio_10r.jpg","5/5a/Leonardo_da_vinci%2C_Study_on_the_proportions_of_head_and_eyes.jpg","8/8f/Leonardo_da_vinci%2C_Study_of_a_central_church.jpg"];
+function folioImage(i){return 'https://upload.wikimedia.org/wikipedia/commons/'+folioSources[i]}
+function engraving(i){return '<figure class="manuscript-study study-'+i+'"><img alt="" draggable="false" decoding="async" src="'+folioImage(i)+'" onerror="this.remove()"></figure>'}
 function warmFolios(){folioSources.forEach((_,i)=>{let im=new Image();im.src=folioImage(i)})}
 if(document.readyState==='complete')warmFolios();else window.addEventListener('load',warmFolios,{once:true});
 function ascension(xp){
